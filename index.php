@@ -15,7 +15,7 @@ $routes = [
 function abort($code = 404)
 {
     http_response_code($code);
-    return require 'views/404.view.php';
+    require "views/{$code}.view.php";
 }
 
 if (array_key_exists($url, $routes)) {
