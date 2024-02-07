@@ -18,9 +18,16 @@ function abort($code = 404)
     require "views/{$code}.view.php";
 }
 
-if (array_key_exists($url, $routes)) {
-    require $routes[$url];
-} else {
-    abort();
+
+
+function routeToController($url, $routes)
+{
+    if (array_key_exists($url, $routes)) {
+        require $routes[$url];
+    } else {
+        abort();
+    }
 }
+
+routeToController($url, $routes);
 
