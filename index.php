@@ -12,13 +12,6 @@ $routes = [
     '/contact' => 'controllers/contact.php'
 ];
 
-function abort($code = 404)
-{
-    http_response_code($code);
-    require "views/{$code}.view.php";
-}
-
-
 
 function routeToController($url, $routes)
 {
@@ -28,6 +21,15 @@ function routeToController($url, $routes)
         abort();
     }
 }
+function abort($code = 404)
+{
+    http_response_code($code);
+    require "views/{$code}.view.php";
+}
+
+
+
+
 
 routeToController($url, $routes);
 
