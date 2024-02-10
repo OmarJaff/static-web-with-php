@@ -2,12 +2,15 @@
 
 require 'functions.php';
 require 'Database.php';
+
 //require 'routes.php';
 
+$config = require ('config.php');
 
-$db = new Database();
 
-$posts = $db->query("select * from posts where id > 1")->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database($config['database']);
+
+$posts = $db->query("select * from posts")->fetchAll();
 
 dd($posts);
 
