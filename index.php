@@ -3,20 +3,13 @@
 require 'functions.php';
 require 'Database.php';
 
-//require 'routes.php';
-
-$config = require ('config.php');
+require 'routes.php';
 
 
-$db = new Database($config['database']);
 
-$posts = $db->query("select * from posts")->fetchAll();
 
-dd($posts);
 
-//foreach ($posts as $post) {
-//    echo "<li>" . $post['title'] ."</li>";
-//}
+
 
 
 
