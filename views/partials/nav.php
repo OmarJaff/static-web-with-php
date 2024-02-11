@@ -10,6 +10,7 @@
                         <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
                         <a href="/" class="<?= urlIs('/') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                         <a href="/about" class="<?= urlIs('/about') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">About</a>
+                        <a href="/notes" class="<?= urlIs('/notes') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Notes</a>
                         <a href="/contact" class="<?= urlIs('/contact') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Contact</a>
 
                     </div>
