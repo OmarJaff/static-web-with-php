@@ -3,8 +3,6 @@
 $heading = "My Note";
 $config = require ('config.php');
 
-
-
 $db = new Database($config['database']);
 
 
