@@ -16,6 +16,8 @@
                  </li>
                     <?php endforeach; ?>
              </ul>
+
+            <a href="#" class="bg-gray-800 text-gray-200  p-2 rounded-lg mt-12 flex  w-48 justify-center">Create a note</a>
         </div>
     </main>
 
