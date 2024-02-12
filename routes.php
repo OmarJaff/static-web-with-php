@@ -3,7 +3,7 @@
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
-$routes = require('route.php')
+$routes = require('route.php');
 
 function routeToController($url, $routes)
 {
