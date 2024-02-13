@@ -10,9 +10,13 @@ $heading = "Create a note";
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $errors = [];
+
     $validator = new Validator();
-    if(! $validator->string($_POST['body'])) {
+
+    if(! $validator->string($_POST['body'],1, 1000)) {
+
         $errors['body'] = 'The body field that accept max of 1,000 characters is required';
+
     }
 
 
