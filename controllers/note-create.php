@@ -7,6 +7,7 @@ $heading = "Create a note";
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $errors = [];
 
     if(strlen($_POST['body']) === 0) {
