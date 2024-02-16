@@ -6,6 +6,8 @@
             <a href="/notes" class="text-blue-500 underline">back to notes ...</a>
              <p> <?=  htmlspecialchars($note['body'])  ?> </p>
 
+            <a href="/notes/edit" class="text-blue-500 underline mt-12">Edit</a>
+
             <form class="mt-6" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="id" value="<?= $note['id'] ?>">
