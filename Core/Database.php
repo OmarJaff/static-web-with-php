@@ -31,7 +31,7 @@ class Database {
          return $this->statement->fetchAll();
      }
 
-     protected function find()
+     public function find()
      {
          return $this->statement->fetch();
      }
