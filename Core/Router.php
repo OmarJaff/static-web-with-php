@@ -60,4 +60,7 @@ class Router {
     require base_path("views/{$code}.view.php");
     die();
 }
+
+
+
 }
