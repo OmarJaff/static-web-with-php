@@ -5,8 +5,6 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-
-
 $currentUserId=  1;
 
 $note = $db->query('select * from notes where id = :id ', [
@@ -20,4 +18,5 @@ $db->query('Delete from notes where id = :id', [
     ]);
 
 header('location: /notes');
+
 exit();
