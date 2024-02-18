@@ -6,6 +6,7 @@ use Core\App;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
+$db = App::resolve('Core\Database');
 
 $errors = [];
 
@@ -17,13 +18,6 @@ if(! Validator::string($password, 7, 255)) {
     $errors['password'] = "Please provide a password with minimum of 7 characters.";
 }
 
-if (! empty($errors)) {
-    return view('registration/create.view.php', [
-       'errors' => $errors
-    ]);
-}
-
-$db = App::resolve('Core\Database');
 
 $user = $db->query('select * from users where email = :email', [
     'email' => $email
@@ -31,20 +25,36 @@ $user = $db->query('select * from users where email = :email', [
 
 if($user) {
 
-    header('location: /');
+    $errors['email'] = "This email is already taken, please use another email.";
 
-} else {
+}
+
+if (! empty($errors)) {
+    return view('registration/create.view.php', [
+       'errors' => $errors
+    ]);
+    exit();
+}
+
+
     $db->query('INSERT INTO users(password,email) VALUES(:password, :email)', [
         'password'=>$password,
         'email'=>$email
     ]);
 
+    $userId = $db->query('SELECT id from users where email = :email', [
+        'email'=> $email
+    ])->findOrFail();
+
+
     $_SESSION['user'] = [
-        'email' => $email
+        'id' => $userId,
+        'email' => $email,
+
     ];
 
     header('location: /');
-}
+
 exit();
 
 
