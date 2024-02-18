@@ -7,8 +7,8 @@ class Router {
 
     protected $routes = [];
 
-    public function add($method,$uri, $controller) {
-            $this->routes[] = compact( 'method' ,'uri', 'controller');
+    public function add($method,$uri, $controller, $middleware = null) {
+            $this->routes[] = compact( 'method' ,'uri', 'controller', 'middleware');
             return $this;
        }
     public function get($uri, $controller)
@@ -47,14 +47,31 @@ class Router {
 
     public function only($key)
     {
-        dd("only $key");
+         $this->routes[array_key_last($this->routes)]['middleware'] = $key;
     }
 
 
     public function route($uri, $method)
     {
-         foreach ($this->routes as $route) {
+          foreach ($this->routes as $route) {
             if($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+                if($route['middleware'] === 'guest') {
+                    if($_SESSION['user'] ?? false) {
+
+                        header('location: /');
+
+                        exit();
+                    }
+                 }
+
+                if($route['middleware'] === 'auth') {
+                    if(! $_SESSION['user'] ?? true) {
+
+                        header('location: /');
+
+                        exit();
+                    }
+                }
                 return require base_path($route['controller']);
             }
         }
