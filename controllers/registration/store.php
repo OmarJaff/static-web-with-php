@@ -42,16 +42,9 @@ if (! empty($errors)) {
         'email'=>$email
     ]);
 
-    $userId = $db->query('SELECT id from users where email = :email', [
-        'email'=> $email
-    ])->findOrFail();
 
 
-    $_SESSION['user'] = [
-        'id' => $userId,
-        'email' => $email,
-
-    ];
+    login($user);
 
     header('location: /');
 
