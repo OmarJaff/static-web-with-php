@@ -35,20 +35,15 @@ $user = $db->query ('select * from users where email = :email', [
 ])->find();
 
 
-
- if(! $user) {
-
-    view('/sessions/create.view.php', [
-         'errors' => [
-             'email' => 'Current credentials are incorrect'
-         ]
-    ]);
-    exit();
-}
-
 $validated = password_verify($password, $user['password']);
 
 if($validated) {
-    login($user);
+    login($email);
     header('location: /');
 }
+
+view('/sessions/create.view.php', [
+    'errors' => [
+        'email' => 'Current credentials are incorrect'
+    ]
+]);

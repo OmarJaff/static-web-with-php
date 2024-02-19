@@ -44,7 +44,7 @@ if (! empty($errors)) {
 
 
 
-    login($user);
+    login($email);
 
     header('location: /');
 
