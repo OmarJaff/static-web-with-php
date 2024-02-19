@@ -1,3 +1,3 @@
 <?php
 
-dd('mam taha');
+view("sessions/create.view.php");

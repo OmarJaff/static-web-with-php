@@ -36,9 +36,9 @@
                                 <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                             </button>
                             <?php else: ?>
-                                 <a href="/register" class="hover:bg-indigo-500 hover:bg-opacity-75 text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Register</a>
+                                 <a href="/register" class="<?= urlIs('/register') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Register</a>
 
-                                <a href="/login" class="hover:bg-indigo-500 hover:bg-opacity-75 text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Login</a>
+                                <a href="/login" class="<?= urlIs('/login') ? 'bg-indigo-700' : 'hover:bg-indigo-500 hover:bg-opacity-75' ?> text-white hover:bg-indigo-500 hover:bg-opacity-75 rounded-md px-3 py-2 text-sm font-medium">Login</a>
                             <?php endif; ?>
                         </div>
 
