@@ -34,6 +34,14 @@ function base_path($path)
     return BASE_PATH . $path;
 }
 
+function login($user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email'],
+
+    ];
+}
+
 function view($path, $attributes = [])
 {
     extract($attributes);
