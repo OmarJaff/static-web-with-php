@@ -34,11 +34,10 @@ function base_path($path)
     return BASE_PATH . $path;
 }
 
-function login($user)
+function login($email)
 {
     $_SESSION['user'] = [
-        'email' => $user['email'],
-
+        'email' => $email,
     ];
 }
 
