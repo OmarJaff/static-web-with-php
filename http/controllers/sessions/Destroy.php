@@ -2,6 +2,6 @@
 
 logout();
 
-header('location: ');
+header('location: /');
 
 exit();
