@@ -24,7 +24,7 @@ $auth = new Authenticator();
 
 if ( $auth->attempt($email, $password)) {
     $this->login($email);
-    header('location: /');
+    redirect('/');
 } else {
     view('/sessions/create.view.php', [
         'errors' => [
