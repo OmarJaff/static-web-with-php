@@ -13,7 +13,6 @@ $form = new LoginForm();
 if($form->validate($email, $password)) {
 
     if ((new Authenticator)->attempt($email, $password)) {
-        $this->login($email);
         redirect('/');
     }
 

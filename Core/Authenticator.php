@@ -16,7 +16,8 @@ class Authenticator
             $validated = password_verify($password, $user['password']);
 
             if ($validated) {
-               return true;
+                $this->login($email);
+                return true;
             }
         }
         return false;

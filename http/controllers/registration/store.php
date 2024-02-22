@@ -1,6 +1,7 @@
 <?php
 
 
+use Core\Authenticator;
 use Core\Validator;
 use Core\App;
 
@@ -44,7 +45,7 @@ if (! empty($errors)) {
 
 
 
-    login($email);
+   (new Authenticator())->login($email);
 
     header('location: /');
 
