@@ -16,10 +16,10 @@ class Authenticator
             $validated = password_verify($password, $user['password']);
 
             if ($validated) {
-                $this->login($email);
-                header('location: /');
+               return true;
             }
         }
+        return false;
 
     }
 
