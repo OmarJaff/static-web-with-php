@@ -2,37 +2,28 @@
 
 
 use Core\Authenticator;
-use Core\Validator;
-use Core\App;
 use http\forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$db = App::resolve('Core\Database');
 
 $form = new LoginForm();
 
-if(! $form->validate($email, $password)) {
-    return view('/sessions/create.view.php', [
-       'errors' => $form->errors()
-    ]);
-}
+if($form->validate($email, $password)) {
 
-$auth = new Authenticator();
+    if ((new Authenticator)->attempt($email, $password)) {
+        $this->login($email);
+        redirect('/');
+    }
 
-
-if ( $auth->attempt($email, $password)) {
-    $this->login($email);
-    redirect('/');
-} else {
-    view('/sessions/create.view.php', [
-        'errors' => [
-            'email' => 'Current credentials are incorrect'
-        ]
-    ]);
+    $form->error('email', "Current credentials are incorrect");
 
 }
+
+view('/sessions/create.view.php', [
+    'errors' => $form->errors()
+]);
 
 
 
