@@ -1,7 +1,7 @@
 <?php
 
 
-use Core\Middleware\Auth;
+use Core\Authenticator;
 use Core\Validator;
 use Core\App;
 use http\forms\LoginForm;
@@ -19,14 +19,20 @@ if(! $form->validate($email, $password)) {
     ]);
 }
 
-$auth = new Auth();
-
-$auth()->attempt($email, $password);
+$auth = new Authenticator();
 
 
-//
-//view('/sessions/create.view.php', [
-//    'errors' => [
-//        'email' => 'Current credentials are incorrect'
-//    ]
-//]);
+if ( $auth->attempt($email, $password)) {
+    $this->login($email);
+    header('location: /');
+} else {
+    view('/sessions/create.view.php', [
+        'errors' => [
+            'email' => 'Current credentials are incorrect'
+        ]
+    ]);
+
+}
+
+
+
