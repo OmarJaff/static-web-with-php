@@ -20,8 +20,5 @@ if($form->validate($email, $password)) {
 
 }
 
-view('/sessions/create.view.php', [
-    'errors' => $form->errors()
-]);
-
+redirect('/login');
 
