@@ -27,7 +27,7 @@ class LoginForm
 
         if($instance->failed()) {
 
-            ValidationException::throw($instance->erros());
+            ValidationException::throw($instance->errors(), $instance->attributes);
         }
 
         return $instance;
