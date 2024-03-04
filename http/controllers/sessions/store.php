@@ -14,13 +14,13 @@ $form = LoginForm::validate($attributes = [
 ]);
 
 
+$signedIn = (new Authenticator)->attempt($attributes['email'],$attributes['password']);
 
-if ((new Authenticator)->attempt($attributes['email'],$attributes['password'])) {
-        redirect('/');
-    }
+if (! $signedIn) {
 
-$form->error('email', "Current credentials are incorrect")->throw();
+    $form->error('email', "Current credentials are incorrect")->throw();
 
+}
 
-return redirect('/login');
+redirect('/');
 
