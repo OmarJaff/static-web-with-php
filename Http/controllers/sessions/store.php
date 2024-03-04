@@ -17,7 +17,7 @@ $signedIn = (new Authenticator)->attempt(
 );
 
 
-if (! $signedIn) {
+if (!$signedIn) {
     $form->error('email',
         "Current credentials are incorrect")
         ->throw();

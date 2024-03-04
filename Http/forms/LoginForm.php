@@ -34,7 +34,7 @@ class LoginForm
         ValidationException::throw($this->errors(), $this->attributes);
     }
 
-    public function failed (): int
+    public function failed (): bool
     {
         return count($this->errors);
     }
