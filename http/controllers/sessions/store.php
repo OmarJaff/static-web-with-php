@@ -19,7 +19,7 @@ if ((new Authenticator)->attempt($attributes['email'],$attributes['password'])) 
         redirect('/');
     }
 
-$form->error('email', "Current credentials are incorrect");
+$form->error('email', "Current credentials are incorrect")->throw();
 
 
 return redirect('/login');
