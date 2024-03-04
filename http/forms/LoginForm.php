@@ -25,12 +25,13 @@ class LoginForm
 
         $instance = new static($attributes);
 
-        if($instance->failed()) {
+        return $instance->failed() ? $instance->throw() : $instance;
 
-            ValidationException::throw($instance->errors(), $instance->attributes);
-        }
+    }
 
-        return $instance;
+    public function throw ()
+    {
+        ValidationException::throw($this->errors(), $this->attributes);
     }
 
     public function failed (): int
@@ -43,8 +44,10 @@ class LoginForm
         return $this->errors;
     }
 
-    public function error($field, $message): void
+    public function error($field, $message): static
     {
         $this->errors[$field] = $message;
+
+        return $this;
     }
 }
