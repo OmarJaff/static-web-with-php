@@ -6,7 +6,9 @@
             "email": "me@omarjaff.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^10.46"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
