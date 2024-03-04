@@ -7,18 +7,12 @@ use Core\ValidationException;
 use http\forms\LoginForm;
 
 
-try {
-    $form = LoginForm::validate([$attributes =
-        'email' => $_POST['email'],
-        'password' => $_POST['password']
-    ]);
-}catch (ValidationException $exception) {
-    Session::flash('errors', $exception->errors);
 
-    Session::flash('old', $exception->old);
+$form = LoginForm::validate([$attributes =
+    'email' => $_POST['email'],
+    'password' => $_POST['password']
+]);
 
-    return redirect('/login');
-}
 
 
 
