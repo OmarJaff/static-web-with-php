@@ -1,0 +1,10 @@
+{
+    "name": "omarjaff/practice-php",
+    "authors": [
+        {
+            "name": "OmarJaff",
+            "email": "me@omarjaff.com"
+        }
+    ],
+    "require": {}
+}
