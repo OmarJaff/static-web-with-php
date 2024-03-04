@@ -54,7 +54,7 @@ class Router {
          $this->routes[array_key_last($this->routes)]['middleware'] = $key;
     }
 
-    public function previousURL () : string
+    public function previousURL ()
     {
         return $_SERVER['HTTP_REFERER'];
     }

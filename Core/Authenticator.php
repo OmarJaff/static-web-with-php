@@ -20,6 +20,7 @@ class Authenticator
                 return true;
             }
         }
+
         return false;
 
     }

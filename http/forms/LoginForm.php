@@ -15,7 +15,7 @@ class LoginForm
             $this->errors['email'] = "Current credentials are incorrect.";
         }
 
-        if(! Validator::string($attributes['password'], 255, 255)) {
+        if(! Validator::string($attributes['password'], 1, 255)) {
             $this->errors['password'] = "Current credentials are incorrect.";
         }
     }
